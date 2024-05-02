@@ -1,5 +1,16 @@
 import styled from 'styled-components'
+import variaveis from '../../styles/variaveis'
 
-const ListaDeContatos = styled.div``
+export const Container = styled.main`
+  padding: 0 40px;
+  height: 100vh;
+  overflow-y: scroll;
+`
 
-export default ListaDeContatos
+const ListaDeContatosStyled = styled.div`
+  background-color: ${variaveis.verde1};
+  padding: 36px;
+  border-radius: 8px;
+`
+
+export default ListaDeContatosStyled
