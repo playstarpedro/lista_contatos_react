@@ -13,15 +13,31 @@ export const NomeCompleto = styled.h2`
   font-size: 18px;
   font-wheight: bold;
   margin-bottom: 16px;
+  color: ${variaveis.azul};
 `
 
-export const Email = styled.h3`
+export const Email = styled.textarea`
+  color: #8b8b8b;
   font-size: 14px;
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  resize: none;
+  border: none;
+  background-color: transparent;
 `
 
-export const Telefone = styled.h3`
+export const Telefone = styled.textarea`
+  color: #8b8b8b;
   font-size: 14px;
-  margin-bottom: 8px;
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  resize: none;
+  border: none;
+  background-color: transparent;
 `
 
 export const BarraAcoes = styled.div`

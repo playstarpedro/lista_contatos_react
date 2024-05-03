@@ -36,10 +36,19 @@ const contatoSlice = createSlice({
       state.itens = state.itens.filter(
         (contato) => contato.id !== action.payload
       )
+    },
+    editar: (state, action: PayloadAction<Contato>) => {
+      const indexDoContato = state.itens.findIndex(
+        (c) => c.id === action.payload.id
+      )
+
+      if (indexDoContato >= 0) {
+        state.itens[indexDoContato] = action.payload
+      }
     }
   }
 })
 
-export const { remover } = contatoSlice.actions
+export const { remover, editar } = contatoSlice.actions
 
 export default contatoSlice.reducer
