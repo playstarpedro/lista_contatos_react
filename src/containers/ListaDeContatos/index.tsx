@@ -6,16 +6,17 @@ import ListaDeContatosStyle, { Container } from './styles'
 import { RootReducer } from '../../store'
 
 const ListaDeContatos = () => {
-  const { contatos } = useSelector((state: RootReducer) => state)
+  const { itens } = useSelector((state: RootReducer) => state.contatos)
 
   return (
     <Container>
       <ListaDeContatosStyle>
         <h2>Meus contatos</h2>
         <ul>
-          {contatos.map((c) => (
+          {itens.map((c) => (
             <li key={c.nomeCompleto}>
               <Contato
+                id={c.id}
                 nomeCompleto={c.nomeCompleto}
                 email={c.email}
                 telefone={c.telefone}
