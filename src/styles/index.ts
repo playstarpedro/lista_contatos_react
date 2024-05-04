@@ -50,5 +50,8 @@ export const Campo = styled.input`
 export const BotaoSalvar = styled(Botao)`
   background-color: ${variaveis.verde3};
 `
+export const BotaoCancelarRemover = styled(Botao)`
+  background-color: ${variaveis.vermelho};
+`
 
 export default EstiloGlobal

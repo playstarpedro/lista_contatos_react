@@ -10,19 +10,19 @@ const initialState: ContatosState = {
     {
       id: 1,
       nomeCompleto: 'Pedro Souza',
-      email: 'pesdro@gmail.com',
+      email: 'pedro@gmail.com',
       telefone: '11 666 666'
     },
     {
       id: 2,
-      nomeCompleto: 'Diogo Souza',
-      email: 'diogo@gmail.com',
+      nomeCompleto: 'Diego Nunes',
+      email: 'diego@gmail.com',
       telefone: '11 555 555'
     },
     {
       id: 3,
-      nomeCompleto: 'Jorge Lafon',
-      email: 'lafon@gmail.com',
+      nomeCompleto: 'João Silva',
+      email: 'joao@gmail.com',
       telefone: '11 777 777'
     }
   ]
@@ -46,7 +46,7 @@ const contatoSlice = createSlice({
         state.itens[indexDoContato] = action.payload
       }
     },
-    cadastrar: (state, action: PayloadAction<Contato>) => {
+    cadastrar: (state, action: PayloadAction<Omit<Contato, 'id'>>) => {
       const contatoJaExiste = state.itens.find(
         (contato) =>
           contato.nomeCompleto.toLowerCase() ===
@@ -56,7 +56,13 @@ const contatoSlice = createSlice({
       if (contatoJaExiste) {
         alert('Este contato já está cadastrado')
       } else {
-        state.itens.push(action.payload)
+        const ultimoContato = state.itens[state.itens.length - 1]
+
+        const contatoNovo = {
+          ...action.payload,
+          id: ultimoContato ? ultimoContato.id + 1 : 1
+        }
+        state.itens.push(contatoNovo)
       }
     }
   }

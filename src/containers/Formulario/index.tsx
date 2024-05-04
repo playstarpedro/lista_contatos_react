@@ -1,21 +1,43 @@
 import { FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
-import { Container, Main, Titulo, Campo, BotaoSalvar } from '../../styles'
+import {
+  Container,
+  Main,
+  Titulo,
+  Campo,
+  BotaoSalvar,
+  BotaoCancelarRemover
+} from '../../styles'
+
 import { Form } from './styles'
 import Contato from '../../models/Contato'
 import { cadastrar } from '../../store/reducers/contatos'
 
 const Formulario = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const [nomeCompleto, setNomeCompleto] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
 
+  const voltarHome = () => {
+    navigate('/')
+  }
+
   const cadastrarContato = (evento: FormEvent) => {
     evento.preventDefault()
-    const contatoParaAdicionar = new Contato(nomeCompleto, email, telefone, 9)
-    dispatch(cadastrar(contatoParaAdicionar))
+    const contatoParaAdicionar = new Contato(nomeCompleto, email, telefone, 1)
+    dispatch(
+      cadastrar({
+        nomeCompleto,
+        email,
+        telefone
+      })
+    )
+    voltarHome()
   }
 
   return (
@@ -44,6 +66,9 @@ const Formulario = () => {
           <BotaoSalvar onClick={cadastrarContato} type="submit">
             Cadastrar
           </BotaoSalvar>
+          <BotaoCancelarRemover onClick={voltarHome} type="submit">
+            Voltar
+          </BotaoCancelarRemover>
         </Form>
       </Main>
     </Container>
