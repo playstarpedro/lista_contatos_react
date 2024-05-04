@@ -6,7 +6,6 @@ const HeaderStyle = styled.header`
   text-align: center;
   color: #fff;
   background-color: ${variaveis.verde3};
-  margin-bottom: 16px;
 `
 
 export default HeaderStyle
