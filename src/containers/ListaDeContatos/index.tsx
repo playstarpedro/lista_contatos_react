@@ -11,7 +11,6 @@ const ListaDeContatos = () => {
   return (
     <Container>
       <ListaDeContatosStyle>
-        <h2>Meus contatos</h2>
         <ul>
           {itens.map((c) => (
             <li key={c.nomeCompleto}>
